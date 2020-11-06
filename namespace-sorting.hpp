@@ -43,6 +43,17 @@ void MergeSort(vector<T>& array, int l, int r) {
   }
 }
 
+template<typename T>
+void BubbleSort(vector<T>& array, int n) {
+  for (int i = 0; i < n - 1; i++) {
+    for (int j = i + 1; j < n; j++) {
+      if (array[i] > array[j]) {
+        swap(array[i], array[j]);
+      }
+    }
+  }
 }
+
+}  // namespace sorting
 
 #endif
