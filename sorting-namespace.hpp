@@ -63,40 +63,42 @@ void BubbleSort(vector<T>& array, int n) {
 }
 
 template<typename T>
-int MedianOfThree(vector<T>& array, int l, int r) {
-  int mid = l + (r - l) / 2;
-  if (array[r] < array[l]) {
-    swap(array[r], array[l]);
-  } if (array[mid] < array[l]) {
-    swap(array[mid], array[l]);
-  } if (array[r] < array[mid]) {
-    swap(array[r], array[mid]);
-  }
-  return mid;
-}
-
-template<typename T>
 int Partition(vector<T>& array, int l, int r) {
-  auto M = MedianOfThree(array, l, r);
-  T pivot = array[M];
-  int j = l - 1;
+  T pivot = array[r];
+  int j = l;
   for (int i = l; i < r; i++) {
     if (array[i] <= pivot) {
-      j++;
       swap(array[i], array[j]);
+      j++;
     }
   }
-  swap(array[j + 1], array[r]);
-  return j + 1;
+  swap(array[j], array[r]);
+  return j;
 }
 
 template<typename T>
 void QuickSort(vector<T>& array, int l, int r) {
-  if (l < r) {
-    T temp = Partition(array, l, r);
-    QuickSort(array, l, temp - 1);
-    QuickSort(array, temp + 1, r);
+  if (r <= l) {
+    return;
   }
+  // Median Of Three
+  int mid = l + (r - l) / 2;
+  if (array[r] < array[mid]) {
+    T temp = array[r];
+    array[r] = array[mid];
+    array[mid] = temp;
+  } if (array[mid] < array[l]) {
+    T temp = array[mid];
+    array[mid] = array[l];
+    array[l] = temp;
+  } if (array[mid] < array[r]) {
+    T temp = array[mid];
+    array[mid] = array[r];
+    array[r] = temp;
+  }
+  T temp = Partition(array, l, r);
+  QuickSort(array, l, temp - 1);
+  QuickSort(array, temp + 1, r);
 }
 
 template<typename T>

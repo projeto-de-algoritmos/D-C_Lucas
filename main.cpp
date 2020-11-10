@@ -112,7 +112,7 @@ int main() {
       } else {  
         double time = sorting::ExecutionTimeOfMergeSort(array, 0, N - 1);
         cout << array;
-        for (int i = 1; i < N; i++) {
+        for (int i = 0; i < N; i++) {
           ordered_array << array[i] << '\n';
         }
         assert(is_sorted(begin(array), end(array)));
@@ -126,9 +126,9 @@ int main() {
       const int N = (int) array.size();
       assert((int) array.size() == N);
       ofstream ordered_array("ordered_array_with_quicksort.txt");
-      if (N >= 1000000) {
+      if (N >= 10000000) {
         cout << "O tempo de execução é bastante alto! Fique a vontade se quiser esperar." << '\n';
-        double time = sorting::ExecutionTimeOfQuickSort(array, 0, N);
+        double time = sorting::ExecutionTimeOfQuickSort(array, 0, N - 1);
         for (int i = 0; i < N; i++) {
           ordered_array << array[i] << '\n';
         }
@@ -137,9 +137,9 @@ int main() {
         cout << "O tempo de execução do QuickSort foi de: " << time << " segundos\n";
         cout << "Foi gerado um arquivo (ordered_array_with_quicksort.txt)" << '\n';        
       } else {  
-        double time = sorting::ExecutionTimeOfQuickSort(array, 0, N);
+        double time = sorting::ExecutionTimeOfQuickSort(array, 0, N - 1);
         cout << array;
-        for (int i = 1; i < N; i++) {
+        for (int i = 0; i < N; i++) {
           ordered_array << array[i] << '\n';
         }
         assert(is_sorted(begin(array), end(array)));
