@@ -44,6 +44,26 @@ void MergeSort(vector<T>& array, int l, int r) {
 }
 
 template<typename T>
+void GenerateArrayWithRandomNumbers(vector<T>& array, const int N) {
+  array.resize(N);
+  for (int i = 0; i < N; i++) {
+    array[i] = rand() % 123456789;
+  }
+}
+
+template<typename T>
+void ShowArray(vector<T>& array) {
+//  cout << "Size = " << array.size() << '\n';
+  for (int i = 0; i < (int) array.size(); i++) {
+    if (i > 0) {
+      cout << ' ';
+    }
+    cout << array[i];
+  }
+  cout << '\n';
+}
+
+template<typename T>
 void BubbleSort(vector<T>& array, int n) {
   for (int i = 0; i < n - 1; i++) {
     for (int j = i + 1; j < n; j++) {
