@@ -117,6 +117,28 @@ double ExecutionTimeOfQuickSort(vector<T>& array, int l, int r) {
   return ((double) (end - start)) / CLOCKS_PER_SEC;
 }
 
+template<typename T>
+void UnorderedArrayFile(vector<T>& array, const int N) {
+  ofstream unordered_array("unordered_array.txt");
+  for (int i = 0; i < N; i++) {
+    unordered_array << array[i] << '\n';
+  }
+  unordered_array.close();
+}
+
+vector<long long> ReadUnorderedArrayFile(const char* path) {
+  vector<long long> array;
+  ifstream ua(path);
+  if (!ua) {
+    cout << "unable to open a file!\n";
+  }
+  long long value;
+  while (ua >> value) {
+    array.emplace_back(value);
+  }
+  return array;
+}
+
 
 }  // namespace sorting
 

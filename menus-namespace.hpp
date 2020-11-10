@@ -13,7 +13,6 @@ void MenuRandomNumbers() {
     cout << "5 - Gerar array com 100000 números aleatórios" << '\n';
     cout << "6 - Gerar array com 1000000 números aleatórios" << '\n';
     cout << "7 - Gerar array com 10000000 números aleatórios" << '\n';
-    cout << "8 - Gerar array com 100000000 números aleatórios" << '\n';
     cout << "0 - Voltar ao menu principal" << '\n';
     cout << "Digite a sua opção: ";
 }
