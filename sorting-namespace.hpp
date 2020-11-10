@@ -104,7 +104,7 @@ void QuickSort(vector<T>& array, int l, int r) {
 template<typename T>
 double ExecutionTimeOfMergeSort(vector<T>& array, int l, int r) {
   clock_t start = clock();
-  sorting::MergeSort(array, l, r);
+  MergeSort(array, l, r);
   clock_t end = clock();
   return ((double) (end - start)) / CLOCKS_PER_SEC;
 }
@@ -112,7 +112,7 @@ double ExecutionTimeOfMergeSort(vector<T>& array, int l, int r) {
 template<typename T>
 double ExecutionTimeOfQuickSort(vector<T>& array, int l, int r) {
   clock_t start = clock();
-  sorting::QuickSort(array, l, r);
+  QuickSort(array, l, r);
   clock_t end = clock();
   return ((double) (end - start)) / CLOCKS_PER_SEC;
 }
@@ -139,6 +139,23 @@ vector<long long> ReadUnorderedArrayFile(const char* path) {
   return array;
 }
 
+template<typename T>
+void GenerateTimes(vector<T> array) {
+  vector<T> size = {10, 100, 1000, 10000, 100000, 1000000, 10000000};
+  for (int i = 0; i < (int) size.size(); i++) {
+    ofstream fp("times/time_mergesort_" + to_string(size[i]) + "_elements.txt");
+    GenerateArrayWithRandomNumbers(array, size[i]);
+    UnorderedArrayFile(array, size[i]);
+    array = ReadUnorderedArrayFile("unordered_array.txt");
+    clock_t start = clock();
+    MergeSort(array, 0, (int) array.size() - 1);
+    clock_t end = clock();
+    for (int j = 0; j < (int) array.size(); j++) {
+      fp << array[j] << '\n';
+    }
+    fp << "time: " << ((double) (end - start)) / CLOCKS_PER_SEC << " seconds" << '\n';
+  }
+}
 
 }  // namespace sorting
 

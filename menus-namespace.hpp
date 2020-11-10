@@ -21,6 +21,7 @@ void MainMenu() {
     cout << "1 - Gerar array com números aleatórios" << '\n';
     cout << "2 - Ordenar o array usando Merge Sort" << '\n';
     cout << "3 - Ordenar array com o Quick Sort" << '\n';
+    cout << "4 - Gerar os tempos de execução para (10, 100, 1000, 10000, 100000, 1000000, 10000000) elementos" << '\n';
     cout << "0 - Encerrar" << '\n';
     cout << "Digite sua opção: ";
 } 

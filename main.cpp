@@ -121,7 +121,6 @@ int main() {
         ordered_array << "O tempo de execução do Merge Sort foi de: " << time << " segundos\n";
         cout << "O tempo de execução do Merge Sort foi de: " << time << " segundos\n";
         cout << "Foi gerado um arquivo (ordered_array_with_mergesort.txt)" << '\n';        
-        debug(clock());
       }
     } else if (option == 3) {
       array = sorting::ReadUnorderedArrayFile("unordered_array.txt");
@@ -148,9 +147,10 @@ int main() {
         cout << "O tempo de execução do Quick Sort foi de: " << time << " segundos\n";
         ordered_array << "O tempo de execução do Quick Sort foi de: " << time << " segundos\n";
         cout << "Foi gerado um arquivo (ordered_array_with_quicksort.txt)" << '\n';        
-        debug(clock());
       }
-
+      
+    } else if (option == 4) {
+        sorting::GenerateTimes(array);
     } else if (option == 0) {
       cout << "Obrigado" << '\n';
       loop_condition = false;
