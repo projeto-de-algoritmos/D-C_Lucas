@@ -153,8 +153,8 @@ void GenerateTimesToMergeSort(vector<T> array) {
     }
     clock_t start = clock();
     MergeSort(array, 0, (int) array.size() - 1);
-    clock_t end = clock();
     assert(is_sorted(begin(array), end(array)));
+    clock_t end = clock();
     for (int j = 0; j < (int) array.size(); j++) {
       fp << array[j] << '\n';
     }
@@ -176,8 +176,8 @@ void GenerateTimesToQuickSort(vector<T> array) {
     }
     clock_t start = clock();
     QuickSort(array, 0, (int) array.size() - 1);
-    clock_t end = clock();
     assert(is_sorted(begin(array), end(array)));
+    clock_t end = clock();
     for (int j = 0; j < (int) array.size(); j++) {
       fp << array[j] << '\n';
     }
