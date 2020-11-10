@@ -150,7 +150,9 @@ int main() {
       }
       
     } else if (option == 4) {
-        sorting::GenerateTimes(array);
+      sorting::GenerateTimesToMergeSort(array);
+    } else if (option == 5) {
+      sorting::GenerateTimesToQuickSort(array);  
     } else if (option == 0) {
       cout << "Obrigado" << '\n';
       loop_condition = false;

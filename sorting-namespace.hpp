@@ -140,15 +140,41 @@ vector<long long> ReadUnorderedArrayFile(const char* path) {
 }
 
 template<typename T>
-void GenerateTimes(vector<T> array) {
+void GenerateTimesToMergeSort(vector<T> array) {
   vector<T> size = {10, 100, 1000, 10000, 100000, 1000000, 10000000};
   for (int i = 0; i < (int) size.size(); i++) {
-    ofstream fp("times/time_mergesort_" + to_string(size[i]) + "_elements.txt");
+    ofstream fp("times_mergesort/time_mergesort_" + to_string(size[i]) + "_elements.txt");
+    ofstream ifpf("times_mergesort/unordered_array_before_mergesort_" + to_string(size[i]) + "_elements");
     GenerateArrayWithRandomNumbers(array, size[i]);
     UnorderedArrayFile(array, size[i]);
     array = ReadUnorderedArrayFile("unordered_array.txt");
+    for (const auto& each : array) {
+      ifpf << each << '\n';
+    }
     clock_t start = clock();
     MergeSort(array, 0, (int) array.size() - 1);
+    clock_t end = clock();
+    for (int j = 0; j < (int) array.size(); j++) {
+      fp << array[j] << '\n';
+    }
+    fp << "time: " << ((double) (end - start)) / CLOCKS_PER_SEC << " seconds" << '\n';
+  }
+}
+
+template<typename T>
+void GenerateTimesToQuickSort(vector<T> array) {
+  vector<T> size = {10, 100, 1000, 10000, 100000, 1000000, 10000000};
+  for (int i = 0; i < (int) size.size(); i++) {
+    ofstream fp("times_quicksort/time_quicksort_" + to_string(size[i]) + "_elements.txt");
+    ofstream ifpf("times_quicksort/unordered_array_before_quicksort_" + to_string(size[i]) + "_elements");
+    GenerateArrayWithRandomNumbers(array, size[i]);
+    UnorderedArrayFile(array, size[i]);
+    array = ReadUnorderedArrayFile("unordered_array.txt");
+    for (const auto& each : array) {
+      ifpf << each << '\n';
+    }
+    clock_t start = clock();
+    QuickSort(array, 0, (int) array.size() - 1);
     clock_t end = clock();
     for (int j = 0; j < (int) array.size(); j++) {
       fp << array[j] << '\n';
