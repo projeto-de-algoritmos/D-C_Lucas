@@ -26,7 +26,11 @@
 
 * Depois que estiver na pasta, execute o comando:
 
-```g++ -o main -O2 -Wall -Wextra -Wshadow -Wformat=2 -Wfloat-equal -pedantic -std=c++17 -DLOCAL main.cpp``` e siga as opções do menu. 
+```make``` e, logo em seguida, digite o comando ```make run``` e siga as opções do menu.
+
+* Quando acabar de usar o projeto, digite:
+
+```make clean``` para apagar os arquivos da pasta bin e da pasta obj.
 
 ## Uso 
 Para usar, basta digitar/seguir as opções do menu:
@@ -38,3 +42,4 @@ Opções:
 * 3 - Faz a ordenação do array utilizando o algoritmo do <i>Quick Sort</i>
 * 4 - Gera os temspos de execução para um array com (10, 100, 1000, 10000, 100000, 1000000, 10000000) elementos utilizando o <i>Merge Sort</i>;
 * 5 - Gera os temspos de execução para um array com (10, 100, 1000, 10000, 100000, 1000000, 10000000) elementos utilizando o <i>Quick Sort</i>;
+* 0 - Encerrar.
