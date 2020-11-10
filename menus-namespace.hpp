@@ -21,6 +21,7 @@ void MenuRandomNumbers() {
 void MainMenu() {
     cout << "1 - Gerar array com números aleatórios" << '\n';
     cout << "2 - Ordenar o array usando Merge Sort" << '\n';
+    cout << "3 - Ordenar array com o Quick Sort" << '\n';
     cout << "0 - Encerrar" << '\n';
     cout << "Digite sua opção: ";
 } 

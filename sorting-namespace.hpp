@@ -52,18 +52,6 @@ void GenerateArrayWithRandomNumbers(vector<T>& array, const int N) {
 }
 
 template<typename T>
-void ShowArray(vector<T>& array) {
-//  cout << "Size = " << array.size() << '\n';
-  for (int i = 0; i < (int) array.size(); i++) {
-    if (i > 0) {
-      cout << ' ';
-    }
-    cout << array[i];
-  }
-  cout << '\n';
-}
-
-template<typename T>
 void BubbleSort(vector<T>& array, int n) {
   for (int i = 0; i < n - 1; i++) {
     for (int j = i + 1; j < n; j++) {
@@ -75,12 +63,58 @@ void BubbleSort(vector<T>& array, int n) {
 }
 
 template<typename T>
-double ExecutionTimeOfAlgorithm(vector<T>& array, int l, int r) {
+int MedianOfThree(vector<T>& array, int l, int r) {
+  int mid = l + (r - l) / 2;
+  if (array[r] < array[l]) {
+    swap(array[r], array[l]);
+  } if (array[mid] < array[l]) {
+    swap(array[mid], array[l]);
+  } if (array[r] < array[mid]) {
+    swap(array[r], array[mid]);
+  }
+  return mid;
+}
+
+template<typename T>
+int Partition(vector<T>& array, int l, int r) {
+  auto M = MedianOfThree(array, l, r);
+  T pivot = array[M];
+  int j = l - 1;
+  for (int i = l; i < r; i++) {
+    if (array[i] <= pivot) {
+      j++;
+      swap(array[i], array[j]);
+    }
+  }
+  swap(array[j + 1], array[r]);
+  return j + 1;
+}
+
+template<typename T>
+void QuickSort(vector<T>& array, int l, int r) {
+  if (l < r) {
+    T temp = Partition(array, l, r);
+    QuickSort(array, l, temp - 1);
+    QuickSort(array, temp + 1, r);
+  }
+}
+
+template<typename T>
+double ExecutionTimeOfMergeSort(vector<T>& array, int l, int r) {
   clock_t start = clock();
   sorting::MergeSort(array, l, r);
   clock_t end = clock();
   return ((double) (end - start)) / CLOCKS_PER_SEC;
 }
+
+template<typename T>
+double ExecutionTimeOfQuickSort(vector<T>& array, int l, int r) {
+  clock_t start = clock();
+  sorting::QuickSort(array, l, r);
+  clock_t end = clock();
+  return ((double) (end - start)) / CLOCKS_PER_SEC;
+}
+
 
 }  // namespace sorting
 
