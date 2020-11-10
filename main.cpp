@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
-#include "namespace-sorting.hpp"
+#include "sorting-namespace.hpp"
+#include "menus-namespace.hpp"
 
 void debug_out() { cerr << endl; }
  
@@ -24,26 +25,13 @@ int main() {
   bool loop_condition = true;
   vector<long long> array;
   while (loop_condition) {
-    cout << "1 - Gerar array com números aleatórios" << '\n';
-    cout << "2 - Ordenar o array usando Merge Sort" << '\n';
-    cout << "0 - Encerrar" << '\n';
-    cout << "Digite sua opção: ";
+    menu::MainMenu();
     cin >> option;
     if (option == 1) {
       int opt;
       do {
-        cout << "1 - Gerar array com 10 números aleatórios" << '\n';
-        cout << "2 - Gerar array com 100 números aleatórios" << '\n';
-        cout << "3 - Gerar array com 1000 números aleatórios" << '\n';
-        cout << "4 - Gerar array com 10000 números aleatórios" << '\n';
-        cout << "5 - Gerar array com 100000 números aleatórios" << '\n';
-        cout << "6 - Gerar array com 1000000 números aleatórios" << '\n';
-        cout << "7 - Gerar array com 10000000 números aleatórios" << '\n';
-        cout << "8 - Gerar array com 100000000 números aleatórios" << '\n';
-        cout << "0 - Voltar ao menu principal" << '\n';
-        cout << "Digite a sua opção: ";
+        menu::MenuRandomNumbers();
         cin >> opt;
-
         switch (opt) {
           case 1:
             sorting::GenerateArrayWithRandomNumbers(array, 10);
@@ -82,8 +70,7 @@ int main() {
             break;
           case 8:
             sorting::GenerateArrayWithRandomNumbers(array, 100000000);
-            cout << "O array gerado foi o seguinte: " << '\n';
-            sorting::ShowArray(array);
+            cout << "O array foi gerado." << '\n';
             break;
           case 0:
             cout << "Obrigado" << '\n';
@@ -95,22 +82,20 @@ int main() {
       } while (opt != 0);
     } else if (option == 2) {
       cout << "Ordenando o array com o Merge Sort" << '\n';
-      clock_t start, end;
       const int N = (int) array.size();
-      start = clock();
       assert((int) array.size() == N);
-      sorting::MergeSort(array, 0, N - 1);
-      end = clock();
       ofstream ordered_array("ordered_array.txt");
       if (N == 100000000 || N == 10000000) {
+        double time = sorting::ExecutionTimeOfAlgorithm(array, 0, N - 1);
         for (int i = 0; i < N; i++) {
           ordered_array << array[i] << '\n';
         }
-        ordered_array << "O tempo de execução do Merge Sort foi de: " << ((double) (end - start)) / CLOCKS_PER_SEC << " segundos\n";
+        ordered_array << "O tempo de execução do Merge Sort foi de: " << time << " segundos\n";
         cout << "Foi gerado um arquivo (ordered_array.txt)" << '\n';        
       } else {
+        double time = sorting::ExecutionTimeOfAlgorithm(array, 0, N - 1);
         sorting::ShowArray(array);
-        cout << "O tempo de execução do Merge Sort foi de: " << ((double) (end - start)) / CLOCKS_PER_SEC << " segundos\n";
+        cout << "O tempo de execução do Merge Sort foi de: " << time << " segundos\n";
         debug(clock());
       }
     } else if (option == 0) {
