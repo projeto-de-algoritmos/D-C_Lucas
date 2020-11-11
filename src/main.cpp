@@ -37,14 +37,17 @@ int main() {
   int option = -1;
   bool loop_condition = true;
   vector<long long> array;
+  system("clear");
   while (loop_condition) {
     menu::MainMenu();
     cin >> option;
+    system("clear");
     if (option == 1) {
       int opt;
       do {
         menu::MenuRandomNumbers();
         cin >> opt;
+        system("clear");
         switch (opt) {
           case 1:
             sorting::GenerateArrayWithRandomNumbers(array, 10);
@@ -89,7 +92,7 @@ int main() {
             cout << array;
             break;
           case 0:
-            cout << "Obrigado" << '\n';
+            cout << "Menu principal" << '\n';
             break;
           default:
             cout << "Digite uma opção válida!" << '\n';
@@ -150,9 +153,13 @@ int main() {
       }
       
     } else if (option == 4) {
+      cout << "Gerando os arquivos na pasta times_mergesort" << '\n';
       sorting::GenerateTimesToMergeSort(array);
+      cout << "Arquivos gerados com sucesso!" << '\n';
     } else if (option == 5) {
+      cout << "Gerando os arquivos na pasta times_quicksort" << '\n';
       sorting::GenerateTimesToQuickSort(array);  
+      cout << "Arquivos gerados com sucesso!" << '\n';
     } else if (option == 0) {
       cout << "Obrigado" << '\n';
       loop_condition = false;

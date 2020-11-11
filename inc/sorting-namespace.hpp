@@ -4,7 +4,7 @@
 using namespace std;
 
 namespace sorting {
-  
+
 template<typename T>
 void Merge(vector<T>& array, int l, int m, int r) {
   int n1 = m - l + 1;
@@ -48,17 +48,6 @@ void GenerateArrayWithRandomNumbers(vector<T>& array, const int N) {
   array.resize(N);
   for (int i = 0; i < N; i++) {
     array[i] = rand() % 123456789;
-  }
-}
-
-template<typename T>
-void BubbleSort(vector<T>& array, int n) {
-  for (int i = 0; i < n - 1; i++) {
-    for (int j = i + 1; j < n; j++) {
-      if (array[i] > array[j]) {
-        swap(array[i], array[j]);
-      }
-    }
   }
 }
 
