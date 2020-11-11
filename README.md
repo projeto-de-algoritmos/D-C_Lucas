@@ -13,9 +13,38 @@
 
 ## Screenshots
 
+* Array de 100 elementos randômicos gerado. <br>
+
+![array_with_random_numbers](imgs/array_with_random_numbers.png)
+
+
+
+* Array ordenado utilizando o <i>Merge Sort</i> com o tempo de execução e gerando um arquivo com os elementos ordenados <br>
+
+![ordered_array_mergesort](imgs/ordered_array_mergesort.png)
+
+
+
+* Array ordenado utilizando o <i>Quick Sort</i> com o tempo de execução e gerando um arquivo com os elementos ordenados <br>
+
+![ordered_array_mergesort](imgs/ordered_array_quicksort.png)
+
+
+
+* Array ordenado do lado esquerdo utilizando o <i>Merge Sort</i> com o tempo de execução e do lado direito o array desordenado <br>
+
+![mergesort_10_elements](imgs/mergesort_10_elements.png)
+
+
+
+* Array ordenado do lado esquerdo utilizando o <i>Quick Sort</i> com o tempo de execução e do lado direito o array desordenado
+
+![quicksort_10_elements](imgs/quicksort_10_elements.png)
+
 
 ## Instalação 
 **Linguagem**: C++17<br>
+
 * Clone o repositório
 
 ```https://github.com/projeto-de-algoritmos/D-C_sorting.git```
