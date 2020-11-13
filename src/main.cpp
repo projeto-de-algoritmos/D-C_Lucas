@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
-#include "sorting-namespace.hpp"
-#include "menus-namespace.hpp"
+#include "../inc/sorting-namespace.hpp"
+#include "../inc/menus-namespace.hpp"
 
 void debug_out() { cerr << endl; }
- 
+
 template <typename Head, typename... Tail>
 void debug_out(Head H, Tail... T) {
   cerr << " " << to_string(H);
@@ -113,8 +113,8 @@ int main() {
         assert(is_sorted(begin(array), end(array)));
         ordered_array << "O tempo de execução do Merge Sort foi de: " << time << " segundos\n";
         cout << "O tempo de execução do Merge Sort foi de: " << time << " segundos\n";
-        cout << "Foi gerado um arquivo (ordered_array_with_mergesort.txt)" << '\n';        
-      } else {  
+        cout << "Foi gerado um arquivo (ordered_array_with_mergesort.txt)" << '\n';
+      } else {
         double time = sorting::ExecutionTimeOfMergeSort(array, 0, N - 1);
         cout << array;
         for (int i = 0; i < N; i++) {
@@ -123,7 +123,7 @@ int main() {
         assert(is_sorted(begin(array), end(array)));
         ordered_array << "O tempo de execução do Merge Sort foi de: " << time << " segundos\n";
         cout << "O tempo de execução do Merge Sort foi de: " << time << " segundos\n";
-        cout << "Foi gerado um arquivo (ordered_array_with_mergesort.txt)" << '\n';        
+        cout << "Foi gerado um arquivo (ordered_array_with_mergesort.txt)" << '\n';
       }
     } else if (option == 3) {
       array = sorting::ReadUnorderedArrayFile("unordered_array.txt");
@@ -139,8 +139,8 @@ int main() {
         assert(is_sorted(begin(array), end(array)));
         ordered_array << "O tempo de execução do QuickSort foi de: " << time << " segundos\n";
         cout << "O tempo de execução do QuickSort foi de: " << time << " segundos\n";
-        cout << "Foi gerado um arquivo (ordered_array_with_quicksort.txt)" << '\n';        
-      } else {  
+        cout << "Foi gerado um arquivo (ordered_array_with_quicksort.txt)" << '\n';
+      } else {
         double time = sorting::ExecutionTimeOfQuickSort(array, 0, N - 1);
         cout << array;
         for (int i = 0; i < N; i++) {
@@ -149,23 +149,22 @@ int main() {
         assert(is_sorted(begin(array), end(array)));
         cout << "O tempo de execução do Quick Sort foi de: " << time << " segundos\n";
         ordered_array << "O tempo de execução do Quick Sort foi de: " << time << " segundos\n";
-        cout << "Foi gerado um arquivo (ordered_array_with_quicksort.txt)" << '\n';        
+        cout << "Foi gerado um arquivo (ordered_array_with_quicksort.txt)" << '\n';
       }
-      
+
     } else if (option == 4) {
       cout << "Gerando os arquivos na pasta times_mergesort" << '\n';
       sorting::GenerateTimesToMergeSort(array);
       cout << "Arquivos gerados com sucesso!" << '\n';
     } else if (option == 5) {
       cout << "Gerando os arquivos na pasta times_quicksort" << '\n';
-      sorting::GenerateTimesToQuickSort(array);  
+      sorting::GenerateTimesToQuickSort(array);
       cout << "Arquivos gerados com sucesso!" << '\n';
     } else if (option == 0) {
       cout << "Obrigado" << '\n';
       loop_condition = false;
     }
-    
+
   }
   return 0;
 }
-
